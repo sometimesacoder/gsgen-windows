@@ -19,6 +19,9 @@ nvcc_flags = [
     # "compute_86",
 ]
 
+if os.name == "nt":
+    nvcc_flags.append("-DWIN32_LEAN_AND_MEAN")
+
 cub_home = os.environ.get("CUB_HOME", None)
 if cub_home is None:
     prefix = os.environ.get("CONDA_PREFIX", None)
